@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure to represent user profile
+struct UserProfile {
+    char name[50];
+    char contact[50];
+    char location[50];
+    char availability[50];
+    char interest[50];
+    char verificationStatus[5];
+    // Add more fields as needed
+};
+
+// Structure to represent volunteer opportunity
+struct VolunteerOpportunity {
+    char organization[50];
+    char opportunityTitle[50];
+    char description[100];
+    char timeCommitment[20];
+    // Add more fields as needed
+};
+
+// Function to process user data
+void processUserData(struct UserProfile user) {
+    // Implement logic to process user data and determine volunteering capabilities
+    printf("%s can volunteer for %s\n", user.name, user.interest);
+}
+
+int main() {
+    // Sample user data
+    struct UserProfile user;
+
+    strcpy(user.name, "John Smith");
+    strcpy(user.contact, "john.smith@email.com | (555) 123-4567");
+    strcpy(user.location, "Cityville, State");
+    strcpy(user.availability, "Weekdays after 5 PM, Saturdays all day");
+    strcpy(user.interest, "Education, Youth Development");
+    strcpy(user.verificationStatus, "Yes");
+    // Add more fields as needed
+
+
+// Sample volunteer opportunity data
+    struct VolunteerOpportunity tutoringOpportunity;
+    strcpy(tutoringOpportunity.organization, "City Youth Empowerment (CYE)");
+    strcpy(tutoringOpportunity.opportunityTitle, "High School Tutor");
+    strcpy(tutoringOpportunity.description, "Assist students with homework and provide mentoring");
+    strcpy(tutoringOpportunity.timeCommitment, "2 hours per session, bi-weekly");
+    // Add more fields as needed
+
+
+// Process user data
+    processUserData(user);
+
+    // Implement logic to match users with volunteer opportunities
+    // For simplicity, let's assume a match if the user's interest matches the opportunity's description
+    if (strstr(user.interest, tutoringOpportunity.description) != NULL) {
+        printf("%s is a suitable match for %s\n", user.name, tutoringOpportunity.opportunityTitle);
+    }
+
+    return 0;
+}
